@@ -71,7 +71,7 @@ buttons.forEach((button) => {
         if(productId === item.id) {
             matchingItem = item;
         };
-       })
+       });
 
        if(matchingItem) {
         matchingItem.quantity += 1;
@@ -79,9 +79,15 @@ buttons.forEach((button) => {
         cart.push({
             id: productId,
             quantity: 1
-        })
+        });
        }
 
-        console.log(cart)
+       let cartQuantity = 0;
+       cart.forEach(item => {
+        cartQuantity += item.quantity;
+       });
+
+       document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+       
     })
 })
